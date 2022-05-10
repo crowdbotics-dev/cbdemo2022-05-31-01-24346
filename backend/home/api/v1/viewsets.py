@@ -6,6 +6,7 @@ from home.models import (
     PostComment,
     PostMedia,
     ReportPost,
+    UpvotePost,
 )
 from .serializers import (
     FollowRequestSerializer,
@@ -14,6 +15,7 @@ from .serializers import (
     PostCommentSerializer,
     PostMediaSerializer,
     ReportPostSerializer,
+    UpvotePostSerializer,
 )
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
@@ -100,3 +102,12 @@ class LikeCommentViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = LikeComment.objects.all()
+
+
+class UpvotePostViewSet(viewsets.ModelViewSet):
+    serializer_class = UpvotePostSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = UpvotePost.objects.all()

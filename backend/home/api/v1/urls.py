@@ -7,6 +7,7 @@ from .viewsets import (
     PostCommentViewSet,
     PostMediaViewSet,
     ReportPostViewSet,
+    UpvotePostViewSet,
 )
 
 from home.api.v1.viewsets import (
@@ -23,6 +24,7 @@ router.register("reportpost", ReportPostViewSet)
 router.register("followrequest", FollowRequestViewSet)
 router.register("postcomment", PostCommentViewSet)
 router.register("likecomment", LikeCommentViewSet)
+router.register("upvotepost", UpvotePostViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

@@ -110,3 +110,20 @@ class LikeComment(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
+
+
+class UpvotePost(models.Model):
+    "Generated Model"
+    post = models.ForeignKey(
+        "home.Post",
+        on_delete=models.CASCADE,
+        related_name="upvotepost_post",
+    )
+    upvote_by = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="upvotepost_upvote_by",
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )

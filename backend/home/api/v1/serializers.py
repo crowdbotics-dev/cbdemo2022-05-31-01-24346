@@ -6,6 +6,7 @@ from home.models import (
     PostComment,
     PostMedia,
     ReportPost,
+    UpvotePost,
 )
 from django.http import HttpRequest
 from django.utils.translation import ugettext_lazy as _
@@ -116,4 +117,10 @@ class PostCommentSerializer(serializers.ModelSerializer):
 class LikeCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = LikeComment
+        fields = "__all__"
+
+
+class UpvotePostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UpvotePost
         fields = "__all__"
