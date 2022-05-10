@@ -86,3 +86,10 @@ class PostComment(models.Model):
         max_length=512,
     )
     image = models.URLField()
+    ref_comment = models.ForeignKey(
+        "home.PostComment",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="postcomment_ref_comment",
+    )
