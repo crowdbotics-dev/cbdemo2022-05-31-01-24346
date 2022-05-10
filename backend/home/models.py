@@ -127,3 +127,20 @@ class UpvotePost(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
+
+
+class DownvotePost(models.Model):
+    "Generated Model"
+    post = models.ForeignKey(
+        "home.Post",
+        on_delete=models.CASCADE,
+        related_name="downvotepost_post",
+    )
+    downvote_by = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="downvotepost_downvote_by",
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )

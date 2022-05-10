@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from home.models import (
+    DownvotePost,
     FollowRequest,
     LikeComment,
     Post,
@@ -123,4 +124,10 @@ class LikeCommentSerializer(serializers.ModelSerializer):
 class UpvotePostSerializer(serializers.ModelSerializer):
     class Meta:
         model = UpvotePost
+        fields = "__all__"
+
+
+class DownvotePostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DownvotePost
         fields = "__all__"

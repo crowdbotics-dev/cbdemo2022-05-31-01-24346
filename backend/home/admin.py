@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import (
+    DownvotePost,
     FollowRequest,
     LikeComment,
     Post,
@@ -16,5 +17,6 @@ admin.site.register(FollowRequest)
 admin.site.register(PostComment)
 admin.site.register(LikeComment)
 admin.site.register(UpvotePost)
+admin.site.register(DownvotePost)
 
 # Register your models here.

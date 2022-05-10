@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from home.models import (
+    DownvotePost,
     FollowRequest,
     LikeComment,
     Post,
@@ -9,6 +10,7 @@ from home.models import (
     UpvotePost,
 )
 from .serializers import (
+    DownvotePostSerializer,
     FollowRequestSerializer,
     LikeCommentSerializer,
     PostSerializer,
@@ -111,3 +113,12 @@ class UpvotePostViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = UpvotePost.objects.all()
+
+
+class DownvotePostViewSet(viewsets.ModelViewSet):
+    serializer_class = DownvotePostSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = DownvotePost.objects.all()
