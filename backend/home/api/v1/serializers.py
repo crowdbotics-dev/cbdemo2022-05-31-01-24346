@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from home.models import Post, PostMedia, ReportPost
+from home.models import FollowRequest, Post, PostMedia, ReportPost
 from django.http import HttpRequest
 from django.utils.translation import ugettext_lazy as _
 from allauth.account import app_settings as allauth_settings
@@ -91,4 +91,10 @@ class PostMediaSerializer(serializers.ModelSerializer):
 class ReportPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReportPost
+        fields = "__all__"
+
+
+class FollowRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FollowRequest
         fields = "__all__"

@@ -1,6 +1,11 @@
 from rest_framework import viewsets
-from home.models import Post, PostMedia, ReportPost
-from .serializers import PostSerializer, PostMediaSerializer, ReportPostSerializer
+from home.models import FollowRequest, Post, PostMedia, ReportPost
+from .serializers import (
+    FollowRequestSerializer,
+    PostSerializer,
+    PostMediaSerializer,
+    ReportPostSerializer,
+)
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -59,3 +64,12 @@ class ReportPostViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = ReportPost.objects.all()
+
+
+class FollowRequestViewSet(viewsets.ModelViewSet):
+    serializer_class = FollowRequestSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = FollowRequest.objects.all()

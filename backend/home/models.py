@@ -48,3 +48,20 @@ class ReportPost(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
+
+
+class FollowRequest(models.Model):
+    "Generated Model"
+    generated_by = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="followrequest_generated_by",
+    )
+    generated_for = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="followrequest_generated_for",
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
