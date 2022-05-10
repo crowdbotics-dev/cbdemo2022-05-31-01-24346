@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlockUser, User
+from .models import BlockUser, ReportUser, User
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
 
@@ -19,3 +19,4 @@ class UserAdmin(auth_admin.UserAdmin):
 
 
 admin.site.register(BlockUser)
+admin.site.register(ReportUser)

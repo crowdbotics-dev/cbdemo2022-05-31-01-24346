@@ -48,3 +48,18 @@ class BlockUser(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
+
+
+class ReportUser(models.Model):
+    "Generated Model"
+    user = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="reportuser_user",
+    )
+    reported_by = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="reportuser_reported_by",
+    )
+    reason = models.TextField()
