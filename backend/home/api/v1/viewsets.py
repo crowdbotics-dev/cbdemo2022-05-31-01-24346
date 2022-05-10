@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Post
-from .serializers import PostSerializer
+from home.models import Post, PostMedia
+from .serializers import PostSerializer, PostMediaSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -41,3 +41,12 @@ class PostViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = Post.objects.all()
+
+
+class PostMediaViewSet(viewsets.ModelViewSet):
+    serializer_class = PostMediaSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = PostMedia.objects.all()

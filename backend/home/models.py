@@ -16,3 +16,17 @@ class Post(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
+
+
+class PostMedia(models.Model):
+    "Generated Model"
+    post = models.ForeignKey(
+        "home.Post",
+        on_delete=models.CASCADE,
+        related_name="postmedia_post",
+    )
+    image = models.URLField()
+    video = models.URLField()
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
