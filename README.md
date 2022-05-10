@@ -62,6 +62,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-user-profile](modules/user-profile)
 - [terms-and-conditions]()
 - [screen-post-listing](screens/post-listing)
+- [screen-login](screens/login)
 
 # Getting started: Frontend
 
