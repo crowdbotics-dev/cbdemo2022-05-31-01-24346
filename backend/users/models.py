@@ -31,3 +31,20 @@ class User(AbstractUser):
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
+
+
+class BlockUser(models.Model):
+    "Generated Model"
+    user = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="blockuser_user",
+    )
+    blocked_by = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="blockuser_blocked_by",
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
