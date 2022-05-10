@@ -1,5 +1,12 @@
 from django.contrib.auth import get_user_model
-from home.models import FollowRequest, Post, PostComment, PostMedia, ReportPost
+from home.models import (
+    FollowRequest,
+    LikeComment,
+    Post,
+    PostComment,
+    PostMedia,
+    ReportPost,
+)
 from django.http import HttpRequest
 from django.utils.translation import ugettext_lazy as _
 from allauth.account import app_settings as allauth_settings
@@ -103,4 +110,10 @@ class FollowRequestSerializer(serializers.ModelSerializer):
 class PostCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = PostComment
+        fields = "__all__"
+
+
+class LikeCommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LikeComment
         fields = "__all__"

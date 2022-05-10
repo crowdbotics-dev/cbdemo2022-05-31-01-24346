@@ -2,6 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .viewsets import (
     FollowRequestViewSet,
+    LikeCommentViewSet,
     PostViewSet,
     PostCommentViewSet,
     PostMediaViewSet,
@@ -21,6 +22,7 @@ router.register("postmedia", PostMediaViewSet)
 router.register("reportpost", ReportPostViewSet)
 router.register("followrequest", FollowRequestViewSet)
 router.register("postcomment", PostCommentViewSet)
+router.register("likecomment", LikeCommentViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

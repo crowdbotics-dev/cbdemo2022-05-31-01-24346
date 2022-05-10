@@ -88,8 +88,25 @@ class PostComment(models.Model):
     image = models.URLField()
     ref_comment = models.ForeignKey(
         "home.PostComment",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="postcomment_ref_comment",
+    )
+
+
+class LikeComment(models.Model):
+    "Generated Model"
+    liked_by = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="likecomment_liked_by",
+    )
+    comment = models.ForeignKey(
+        "home.PostComment",
+        on_delete=models.CASCADE,
+        related_name="likecomment_comment",
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
     )

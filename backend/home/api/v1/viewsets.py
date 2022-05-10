@@ -1,7 +1,15 @@
 from rest_framework import viewsets
-from home.models import FollowRequest, Post, PostComment, PostMedia, ReportPost
+from home.models import (
+    FollowRequest,
+    LikeComment,
+    Post,
+    PostComment,
+    PostMedia,
+    ReportPost,
+)
 from .serializers import (
     FollowRequestSerializer,
+    LikeCommentSerializer,
     PostSerializer,
     PostCommentSerializer,
     PostMediaSerializer,
@@ -83,3 +91,12 @@ class PostCommentViewSet(viewsets.ModelViewSet):
         authentication.TokenAuthentication,
     )
     queryset = PostComment.objects.all()
+
+
+class LikeCommentViewSet(viewsets.ModelViewSet):
+    serializer_class = LikeCommentSerializer
+    authentication_classes = (
+        authentication.SessionAuthentication,
+        authentication.TokenAuthentication,
+    )
+    queryset = LikeComment.objects.all()
