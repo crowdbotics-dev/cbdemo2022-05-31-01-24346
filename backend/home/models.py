@@ -88,6 +88,13 @@ class PostComment(models.Model):
         on_delete=models.CASCADE,
         related_name="postcomment_ref_comment",
     )
+    post = models.ForeignKey(
+        "home.Post",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="postcomment_post",
+    )
 
 
 class LikeComment(models.Model):
