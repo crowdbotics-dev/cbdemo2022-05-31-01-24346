@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from home.models import (
+    Chat,
     DownvotePost,
     FollowRequest,
     LikeComment,
@@ -130,4 +131,10 @@ class UpvotePostSerializer(serializers.ModelSerializer):
 class DownvotePostSerializer(serializers.ModelSerializer):
     class Meta:
         model = DownvotePost
+        fields = "__all__"
+
+
+class ChatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Chat
         fields = "__all__"

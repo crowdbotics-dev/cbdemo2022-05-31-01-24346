@@ -90,9 +90,9 @@ class PostComment(models.Model):
     )
     post = models.ForeignKey(
         "home.Post",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="postcomment_post",
     )
 
@@ -142,6 +142,20 @@ class DownvotePost(models.Model):
         "users.User",
         on_delete=models.CASCADE,
         related_name="downvotepost_downvote_by",
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+
+class Chat(models.Model):
+    "Generated Model"
+    chat_id = models.CharField(
+        max_length=256,
+    )
+    users = models.ManyToManyField(
+        "users.User",
+        related_name="chat_users",
     )
     created_at = models.DateTimeField(
         auto_now_add=True,

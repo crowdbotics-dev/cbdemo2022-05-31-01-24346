@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import (
+    Chat,
     DownvotePost,
     FollowRequest,
     LikeComment,
@@ -18,5 +19,6 @@ admin.site.register(PostComment)
 admin.site.register(LikeComment)
 admin.site.register(UpvotePost)
 admin.site.register(DownvotePost)
+admin.site.register(Chat)
 
 # Register your models here.

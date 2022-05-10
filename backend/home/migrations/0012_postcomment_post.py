@@ -7,13 +7,19 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('home', '0011_remove_postcomment_post'),
+        ("home", "0011_remove_postcomment_post"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='postcomment',
-            name='post',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='postcomment_post', to='home.Post'),
+            model_name="postcomment",
+            name="post",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="postcomment_post",
+                to="home.Post",
+            ),
         ),
     ]
