@@ -28,6 +28,16 @@ class User(AbstractUser):
         blank=True,
         max_length=256,
     )
+    followers = models.ManyToManyField(
+        "users.User",
+        blank=True,
+        related_name="user_followers",
+    )
+    following = models.ManyToManyField(
+        "users.User",
+        blank=True,
+        related_name="user_following",
+    )
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})

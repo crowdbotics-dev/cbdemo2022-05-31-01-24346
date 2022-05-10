@@ -9,17 +9,39 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('home', '0004_reportpost'),
+        ("home", "0004_reportpost"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='FollowRequest',
+            name="FollowRequest",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('generated_by', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='followrequest_generated_by', to=settings.AUTH_USER_MODEL)),
-                ('generated_for', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='followrequest_generated_for', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "generated_by",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="followrequest_generated_by",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "generated_for",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="followrequest_generated_for",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]
