@@ -69,11 +69,6 @@ class FollowRequest(models.Model):
 
 class PostComment(models.Model):
     "Generated Model"
-    post = models.ForeignKey(
-        "home.FollowRequest",
-        on_delete=models.CASCADE,
-        related_name="postcomment_post",
-    )
     user = models.ForeignKey(
         "users.User",
         on_delete=models.CASCADE,

@@ -1,4 +1,13 @@
-from .models import FollowRequest, Post, PostMedia, ReportPost
+from .models import (
+    Post,
+    UpvotePost,
+    DownvotePost,
+    PostMedia,
+    FollowRequest,
+    ReportPost,
+    LikeComment,
+    PostComment,
+)
 from django.views.generic import CreateView, UpdateView, DetailView, ListView
 from django.shortcuts import render
 
