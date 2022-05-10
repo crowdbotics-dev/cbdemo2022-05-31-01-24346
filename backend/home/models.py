@@ -30,3 +30,21 @@ class PostMedia(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
+
+
+class ReportPost(models.Model):
+    "Generated Model"
+    post = models.ForeignKey(
+        "home.Post",
+        on_delete=models.CASCADE,
+        related_name="reportpost_post",
+    )
+    reported_by = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="reportpost_reported_by",
+    )
+    reason = models.TextField()
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )

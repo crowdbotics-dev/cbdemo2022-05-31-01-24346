@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .viewsets import PostViewSet, PostMediaViewSet
+from .viewsets import PostViewSet, PostMediaViewSet, ReportPostViewSet
 
 from home.api.v1.viewsets import (
     SignupViewSet,
@@ -12,6 +12,7 @@ router.register("signup", SignupViewSet, basename="signup")
 router.register("login", LoginViewSet, basename="login")
 router.register("post", PostViewSet)
 router.register("postmedia", PostMediaViewSet)
+router.register("reportpost", ReportPostViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
