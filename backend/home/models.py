@@ -65,3 +65,24 @@ class FollowRequest(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
     )
+
+
+class PostComment(models.Model):
+    "Generated Model"
+    post = models.ForeignKey(
+        "home.FollowRequest",
+        on_delete=models.CASCADE,
+        related_name="postcomment_post",
+    )
+    user = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="postcomment_user",
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+    comment = models.CharField(
+        max_length=512,
+    )
+    image = models.URLField()

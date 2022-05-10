@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .viewsets import (
     FollowRequestViewSet,
     PostViewSet,
+    PostCommentViewSet,
     PostMediaViewSet,
     ReportPostViewSet,
 )
@@ -19,6 +20,7 @@ router.register("post", PostViewSet)
 router.register("postmedia", PostMediaViewSet)
 router.register("reportpost", ReportPostViewSet)
 router.register("followrequest", FollowRequestViewSet)
+router.register("postcomment", PostCommentViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
