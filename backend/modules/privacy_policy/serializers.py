@@ -3,6 +3,8 @@ from .models import PrivacyPolicy
 
 
 class PrivacyPolicySerializer(serializers.ModelSerializer):
+
+
     class Meta:
         model = PrivacyPolicy
         fields = [
@@ -14,3 +16,6 @@ class PrivacyPolicySerializer(serializers.ModelSerializer):
             "updated_at",
         ]
         read_only_fields = ["id"]
+
+
+
