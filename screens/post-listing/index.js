@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   headingTxt: {
     fontSize: 24,
     fontWeight: "bold",
-    padding: 2,
+    padding: 2, 
     marginVertical: 12
   }
 });
